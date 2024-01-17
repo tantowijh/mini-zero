@@ -144,37 +144,37 @@
                                 </div>
                                 <div class="col-sm-8">
                                     <label for="nama_sekolah" class="form-label">Nama Sekolah:</label>
-                                    <input name="nama_sekolah" type="text" class="form-control" id="nama_sekolah" placeholder="" value="<?php echo $nama_sekolah; ?>" required>
+                                    <input name="nama_sekolah" type="text" class="form-control" maxlength="30" id="nama_sekolah" placeholder="" value="<?php echo $nama_sekolah; ?>" required>
                                     <div class="invalid-feedback">
                                         Nama sekolah harus diisi.
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <label for="nama_jurusan" class="form-label">Jurusan:</label>
-                                    <input name="jurusan" type="text" class="form-control" id="nama_jurusan" placeholder="" value="<?php echo $jurusan; ?>" required>
+                                    <input name="jurusan" type="text" class="form-control" maxlength="25" id="nama_jurusan" placeholder="" value="<?php echo $jurusan; ?>" required>
                                     <div class="invalid-feedback">
                                         Jurusan harus diisi.
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <label for="tahun_mulai" class="form-label">Tahun Mulai:</label>
-                                    <input name="tahun_mulai" type="number" class="form-control" id="tahun_mulai" placeholder="" value="<?php echo $tahun_mulai; ?>" required>
+                                    <input name="tahun_mulai" type="number" class="form-control" min="1000" max="9999" id="tahun_mulai" placeholder="" value="<?php echo $tahun_mulai; ?>" required>
                                     <div class="invalid-feedback">
-                                        Tahun mulai harus diisi.
+                                        Tahun mulai harus empat digit.
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <label for="tahun_selesai" class="form-label">Tahun Selesai:</label>
-                                    <input name="tahun_selesai" type="number" class="form-control" id="tahun_selesai" placeholder="" value="<?php echo $tahun_selesai; ?>" required>
+                                    <input name="tahun_selesai" type="number" class="form-control" min="1000" max="9999" id="tahun_selesai" placeholder="" value="<?php echo $tahun_selesai; ?>" required>
                                     <div class="invalid-feedback">
-                                        Tahun selesai harus diisi.
+                                        Tahun selesai harus empat digit.
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <label for="nilai_akhir" class="form-label">Nilai Akhir:</label>
-                                    <input name="nilai_akhir" type="number" class="form-control" id="nilai_akhir" placeholder="" value="<?php echo $nilai_akhir; ?>" required>
+                                    <input name="nilai_akhir" type="number" class="form-control" min="1" max="10" id="nilai_akhir" placeholder="" value="<?php echo $nilai_akhir; ?>" required>
                                     <div class="invalid-feedback">
-                                        Nilai akhir harus diisi.
+                                        Nilai akhir minimal 1 dan maksimal 10.
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
