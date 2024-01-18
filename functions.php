@@ -1,11 +1,4 @@
 <?php
-ini_set('display_errors', 0);
-
-require_once 'vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->safeLoad();
-
 include 'koneksi.php';
 
 function tabelPendidikan($koneksi){
