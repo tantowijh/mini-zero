@@ -140,7 +140,7 @@
                                 </div>
                                 <div class="col-sm-8">
                                     <label for="nama_sekolah" class="form-label">Nama Sekolah:</label>
-                                    <input name="nama_sekolah" type="text" class="form-control" id="nama_sekolah" placeholder="" value="" maxlength="30" required>
+                                    <input name="nama_sekolah" type="text" class="form-control" id="nama_sekolah" placeholder="" value="" maxlength="35" required>
                                     <div class="invalid-feedback">
                                         Nama sekolah harus diisi.
                                     </div>

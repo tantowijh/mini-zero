@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="col-sm-8">
                                     <label for="nama_sekolah" class="form-label">Nama Sekolah:</label>
-                                    <input name="nama_sekolah" type="text" class="form-control" maxlength="30" id="nama_sekolah" placeholder="" value="<?php echo $nama_sekolah; ?>" required>
+                                    <input name="nama_sekolah" type="text" class="form-control" maxlength="35" id="nama_sekolah" placeholder="" value="<?php echo $nama_sekolah; ?>" required>
                                     <div class="invalid-feedback">
                                         Nama sekolah harus diisi.
                                     </div>
