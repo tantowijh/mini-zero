@@ -150,7 +150,7 @@
                                     <label for="nama_jurusan" class="form-label">Jurusan:</label>
                                     <input name="jurusan" type="text" class="form-control" maxlength="25" id="nama_jurusan" placeholder="" value="<?php echo $jurusan; ?>" required>
                                     <div class="invalid-feedback">
-                                        Jurusan harus diisi.
+                                        Jurusan harus diisi * jika tidak ada, isi dengan tanda strip (-).
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
@@ -169,7 +169,7 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <label for="nilai_akhir" class="form-label">Nilai Akhir:</label>
-                                    <input name="nilai_akhir" type="number" class="form-control" min="1" max="10" id="nilai_akhir" placeholder="" value="<?php echo $nilai_akhir; ?>" required>
+                                    <input name="nilai_akhir" type="number" class="form-control" min="0" max="10" id="nilai_akhir" placeholder="" value="<?php echo $nilai_akhir; ?>" required>
                                     <div class="invalid-feedback">
                                         Nilai akhir minimal 1 dan maksimal 10.
                                     </div>

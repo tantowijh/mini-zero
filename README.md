@@ -16,7 +16,7 @@ Untuk menjalankan aplikasi PHP ini, Anda perlu menginstal PHP dan beberapa depen
 git clone https://github.com/tantowijh/mini-zero.git mini-zero
 ```
 
-2. Navigate into the folder and install the dependencies:
+2. Masuk ke direktori `mini-zero` dan jalankan perintah `composer install`:
 
 ```bash
 cd mini-zero
