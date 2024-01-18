@@ -169,7 +169,7 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <label for="nilai_akhir" class="form-label">Nilai Akhir:</label>
-                                    <input name="nilai_akhir" type="number" class="form-control" min="0" max="10" id="nilai_akhir" placeholder="" value="<?php echo $nilai_akhir; ?>" required>
+                                    <input name="nilai_akhir" type="number" class="form-control" step="0.1" min="0" max="10" id="nilai_akhir" placeholder="" value="<?php echo $nilai_akhir; ?>" required>
                                     <div class="invalid-feedback">
                                         Nilai akhir minimal 1 dan maksimal 10.
                                     </div>
