@@ -25,11 +25,6 @@ function ddl_tabel($koneksi){
     return $koneksi->query($sql);
 }
 
-function dml_select_all($koneksi){
-    $sql = "SELECT * FROM data_pendidikan";
-    return $koneksi->query($sql);
-}
-
 function dml_select($koneksi, $id){
     $sql = "SELECT * FROM data_pendidikan WHERE id = $id";
     return $koneksi->query($sql);
@@ -37,18 +32,21 @@ function dml_select($koneksi, $id){
 
 function dml_insert($koneksi, $data){
     $sql = "INSERT INTO data_pendidikan (tingkat, nama_sekolah, jurusan, tahun_mulai, tahun_selesai, nilai_akhir, bersertifikat)
-            VALUES ('$data[tingkat]', '$data[nama_sekolah]', '$data[jurusan]', '$data[tahun_mulai]', '$data[tahun_selesai]', '$data[nilai_akhir]', '$data[bersertifikat]')";
-    return $koneksi->query($sql);
+            VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql = $koneksi->prepare($sql);
+    $sql->bind_param("sssssss", $data['tingkat'], $data['nama_sekolah'], $data['jurusan'], $data['tahun_mulai'], $data['tahun_selesai'], $data['nilai_akhir'], $data['bersertifikat']);
+    return $sql->execute();
 }
 
 function dml_update($koneksi, $data, $id){
-    $sql = "UPDATE data_pendidikan SET tingkat='$data[tingkat]', nama_sekolah='$data[nama_sekolah]', jurusan='$data[jurusan]', 
-            tahun_mulai='$data[tahun_mulai]', tahun_selesai='$data[tahun_selesai]', nilai_akhir='$data[nilai_akhir]', 
-            bersertifikat='$data[bersertifikat]' WHERE id='$id'";
-    return $koneksi->query($sql);
+    $sql = "UPDATE data_pendidikan SET tingkat=?, nama_sekolah=?, jurusan=?, tahun_mulai=?, tahun_selesai=?, nilai_akhir=?, bersertifikat=? WHERE id=?";
+    $sql = $koneksi->prepare($sql);
+    $sql->bind_param("sssssssi", $data['tingkat'], $data['nama_sekolah'], $data['jurusan'], $data['tahun_mulai'], $data['tahun_selesai'], $data['nilai_akhir'], $data['bersertifikat'], $id);
+    return $sql->execute();
 }
 
 function dml_delete($koneksi, $id){
-    $sql = "DELETE FROM data_pendidikan WHERE id='$id'";
-    return $koneksi->query($sql);
+    $sql = $koneksi->prepare("DELETE FROM data_pendidikan WHERE id=?");
+    $sql->bind_param("i", $id);
+    return $sql->execute();
 }
