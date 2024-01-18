@@ -1,40 +1,36 @@
 <?php
-require_once 'koneksi.php';
+include 'functions.php';
 
-// Create a new connection
-$koneksi = koneksi();
+// Mengecek apakah tabel data_pendidikan sudah tersedia
+$adaTabel = tabelPendidikan($koneksi);
 
-// Check if table exists
-$tableExists = $koneksi->query("SHOW TABLES LIKE 'data_pendidikan'")->num_rows > 0;
-
-if (!$tableExists) {
+if (!$adaTabel) {
     echo 'Tabel data_pendidikan belum tersedia. Silakan buat tabel terlebih dahulu.';
 } else {
-    // Retrieve data from the form
-    $id = $_POST['id'];
-    $tingkat = $_POST['tingkat'];
-    $nama_sekolah = $_POST['nama_sekolah'];
-    $jurusan = $_POST['jurusan'];
-    $tahun_mulai = $_POST['tahun_mulai'];
-    $tahun_selesai = $_POST['tahun_selesai'];
-    $nilai_akhir = $_POST['nilai_akhir'];
-    $bersertifikat = $_POST['bersertifikat'];
 
-    // Prepare the SQL statement    
-    $sql = "UPDATE data_pendidikan SET tingkat='$tingkat', nama_sekolah='$nama_sekolah', jurusan='$jurusan', 
-            tahun_mulai='$tahun_mulai', tahun_selesai='$tahun_selesai', nilai_akhir='$nilai_akhir', 
-            bersertifikat='$bersertifikat' WHERE id='$id'";
+    // Menyiapkan data dari form untuk dimasukkan ke tabel data_pendidikan
+    $data = [
+        'id' => $_POST['id'],
+        'tingkat' => $_POST['tingkat'],
+        'nama_sekolah' => $_POST['nama_sekolah'],
+        'jurusan' => $_POST['jurusan'],
+        'tahun_mulai' => $_POST['tahun_mulai'],
+        'tahun_selesai' => $_POST['tahun_selesai'],
+        'nilai_akhir' => $_POST['nilai_akhir'],
+        'bersertifikat' => $_POST['bersertifikat']
+    ];
 
-    // Execute the SQL statement
-    if ($koneksi->query($sql) === TRUE) {
-        echo 'Data pendidikan berhasil disimpan.';
+    // Mengupdate data ke tabel data_pendidikan
+    $update_data = dml_update($koneksi, $data, $data['id']);
+    
+    // Mengecek apakah data berhasil diupdate
+    if ($update_data) {
+        echo 'Data berhasil diupdate';
     } else {
-        echo 'Error: ' . $sql . '<br>' . $koneksi->error;
+        echo 'Data gagal diupdate';
     }
 }
 
-// Close the connection
-$koneksi->close();
 header("Location: index.php");
 exit();
 ?>

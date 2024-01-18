@@ -35,9 +35,8 @@
 <body>
 
     <?php
-    require_once 'koneksi.php';
-    $koneksi = koneksi();
-    $adaTabel = $koneksi->query("SHOW TABLES LIKE 'data_pendidikan'")->num_rows > 0;
+    include 'functions.php';
+    $adaTabel = dataPendidikan($koneksi);
 
     $id;
     $tingkat;
@@ -74,8 +73,7 @@
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT * FROM data_pendidikan WHERE id = " . $_POST['id'] . "";
-                        $hasil = $koneksi->query($sql);
+                        $hasil = dml_select($koneksi, $_POST['id']);
                         if ($hasil->num_rows > 0) {
                             while ($baris = $hasil->fetch_assoc()) {
                                 echo "<tr>";
@@ -101,7 +99,6 @@
                         } else {
                             echo "<tr><td colspan='7'>Belum ada data</td></tr>";
                         }
-                        $koneksi->close();
                         ?>
                     </tbody>
                 </table>

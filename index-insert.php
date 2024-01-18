@@ -43,9 +43,8 @@
 <body>
 
     <?php
-    require_once 'koneksi.php';
-    $koneksi = koneksi();
-    $adaTabel = $koneksi->query("SHOW TABLES LIKE 'data_pendidikan'")->num_rows > 0;
+    include 'functions.php';
+    $adaTabel = tabelPendidikan($koneksi);
     ?>
 
     <div class="container">
@@ -73,10 +72,9 @@
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT * FROM data_pendidikan";
-                        $hasil = $koneksi->query($sql);
-                        if ($hasil->num_rows > 0) {
-                            while ($baris = $hasil->fetch_assoc()) {
+                        $data_pendidikan = dataPendidikan($koneksi);
+                        if ($data_pendidikan->num_rows > 0) {
+                            while ($baris = $data_pendidikan->fetch_assoc()) {
                                 echo "<tr>";
                                 echo "<td>" . $baris["tingkat"] . "</td>";
                                 echo "<td>" . $baris["nama_sekolah"] . "</td>";
@@ -104,7 +102,6 @@
                         } else {
                             echo "<tr><td colspan='8'>Belum ada data</td></tr>";
                         }
-                        $koneksi->close();
                         ?>
                     </tbody>
                 </table>
