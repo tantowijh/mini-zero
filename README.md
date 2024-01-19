@@ -5,7 +5,6 @@ Untuk menjalankan aplikasi PHP ini, Anda perlu menginstal PHP dan beberapa depen
 ## Persyaratan
 
 - [PHP](https://www.php.net/manual/en/install.php) &mdash; versi 7.3 atau lebih tinggi
-- [Composer](https://getcomposer.org/)
 - Sebuah Database MySQL
 
 ## Set up the PHP app
@@ -20,7 +19,6 @@ git clone https://github.com/tantowijh/mini-zero.git mini-zero
 
 ```bash
 cd mini-zero
-composer install
 ```
 
 3. Copy file `.env.example` ke `.env`:
