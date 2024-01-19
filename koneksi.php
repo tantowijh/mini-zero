@@ -8,7 +8,7 @@ $hostname = $_ENV['DB_HOST'];
 $username = $_ENV['DB_USERNAME'];
 $password = $_ENV['DB_PASSWORD'];
 $dbName = $_ENV['DB_NAME'];
-$port = $_ENV['PORT'];
+$port = $_ENV['DB_PORT'];
 $ssl = $_ENV['MYSQL_ATTR_SSL_CA'];
 
 // Mengatur SSL untuk koneksi ke database
