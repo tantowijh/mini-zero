@@ -1,3 +1,19 @@
+document.addEventListener('DOMContentLoaded', function() {
+  var tingkatSekolah = document.getElementById('tingkat_sekolah');
+  var feedback = document.querySelector('.invalid-feedback.nilai');
+  tingkatSekolah.addEventListener('change', function() {
+    var tingkat = this.value;
+    var nilaiAkhir = document.getElementById('nilai_akhir');
+    if (tingkat == 'S1' || tingkat == 'S2' || tingkat == 'S3') {
+      nilaiAkhir.setAttribute('max', '4');
+      feedback.textContent = 'Nilai akhir minimal 1 dan maksimal 4.';
+    } else {
+      nilaiAkhir.setAttribute('max', '10');
+      feedback.textContent = 'Nilai akhir minimal 1 dan maksimal 10.';
+    }
+  });
+});
+
 // Menggunakan JavaScript untuk validasi form insert
 (() => {
   'use strict';
