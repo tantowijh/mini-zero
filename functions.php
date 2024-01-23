@@ -1,6 +1,14 @@
 <?php
 include 'koneksi.php';
 
+function sqlResult($stmt){
+    if ($stmt->execute()) {
+        return $stmt->affected_rows;
+    } else {
+        return false;
+    }
+}
+
 function tabelPendidikan($koneksi){
     $sql = "SHOW TABLES LIKE 'data_pendidikan'";
     return $koneksi->query($sql)->num_rows > 0;
@@ -35,18 +43,18 @@ function dml_insert($koneksi, $data){
             VALUES (?, ?, ?, ?, ?, ?, ?)";
     $sql = $koneksi->prepare($sql);
     $sql->bind_param("sssssss", $data['tingkat'], $data['nama_sekolah'], $data['jurusan'], $data['tahun_mulai'], $data['tahun_selesai'], $data['nilai_akhir'], $data['bersertifikat']);
-    return $sql->execute();
+    return sqlResult($sql);
 }
 
 function dml_update($koneksi, $data, $id){
     $sql = "UPDATE data_pendidikan SET tingkat=?, nama_sekolah=?, jurusan=?, tahun_mulai=?, tahun_selesai=?, nilai_akhir=?, bersertifikat=? WHERE id=?";
     $sql = $koneksi->prepare($sql);
     $sql->bind_param("sssssssi", $data['tingkat'], $data['nama_sekolah'], $data['jurusan'], $data['tahun_mulai'], $data['tahun_selesai'], $data['nilai_akhir'], $data['bersertifikat'], $id);
-    return $sql->execute();
+    return sqlResult($sql);
 }
 
 function dml_delete($koneksi, $id){
     $sql = $koneksi->prepare("DELETE FROM data_pendidikan WHERE id=?");
     $sql->bind_param("i", $id);
-    return $sql->execute();
+    return sqlResult($sql);
 }

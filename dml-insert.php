@@ -24,12 +24,12 @@ if (!$adaTabel) {
 
     // Mengecek apakah data berhasil dimasukkan
     if ($insert_data) {
-        echo 'Data berhasil dimasukkan';
+        header("Location: index.php");
+        exit();
     } else {
-        echo 'Data gagal dimasukkan';
+        $error_message = "Terjadi kesalahan dalam memasukkan data.";
+        header("Location: index-error.php?error_message=" . urlencode($error_message));
+        exit();
     }
 }
-
-header("Location: index.php");
-exit();
 ?>

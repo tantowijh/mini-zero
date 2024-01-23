@@ -15,13 +15,12 @@ if (!$adaTabel) {
 
     // Mengecek apakah data berhasil dihapus
     if ($delete_data) {
-        echo 'Data berhasil dihapus';
+        header("Location: index.php");
+        exit();
     } else {
-        echo 'Data gagal dihapus';
+        $error_message = "Terjadi kesalahan dalam menghapus data.";
+        header("Location: index-error.php?error_message=" . urlencode($error_message));
+        exit();
     }
-
 }
-
-header("Location: index.php");
-exit();
 ?>

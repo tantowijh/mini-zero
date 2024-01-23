@@ -103,8 +103,8 @@
                     </tbody>
                 </table>
 
-                <div class="text-center">
-                    <a href="index.php" class="btn btn-primary col-2" type="button">KEMBALI</a>
+                <div class="d-flex justify-content-center">
+                    <a href="index.php" class="btn btn-primary" type="button">KEMBALI</a>
                 </div>
             </div>
             <div class="py-5 text-center">
