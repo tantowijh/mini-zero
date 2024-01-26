@@ -5,7 +5,7 @@ include 'functions.php';
 $adaTabel = tabelPendidikan($koneksi);
 
 if (!$adaTabel) {
-    echo 'Tabel data_pendidikan belum tersedia. Silakan buat tabel terlebih dahulu.';
+    displayNoTable();
 } else {
 
     // Menyiapkan data dari form untuk dimasukkan ke tabel data_pendidikan

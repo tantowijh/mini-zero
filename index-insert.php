@@ -162,7 +162,7 @@
                                 <div class="col-sm-4">
                                     <label for="tahun_selesai" class="form-label">Tahun Selesai:</label>
                                     <input name="tahun_selesai" type="number" class="form-control" min="1000" max="9999" id="tahun_selesai" placeholder="" value="" required>
-                                    <div class="invalid-feedback">
+                                    <div class="invalid-feedback tahun_valid">
                                         Tahun selesai harus empat digit.
                                     </div>
                                 </div>

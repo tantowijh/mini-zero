@@ -5,7 +5,7 @@ include 'functions.php';
 $adaTabel = tabelPendidikan($koneksi);
 
 if (!$adaTabel) {
-    echo 'Tabel data_pendidikan belum tersedia. Silakan buat tabel terlebih dahulu.';
+    displayNoTable();
 } else {
     // Menyiapkan id untuk dihapus
     $id = $_POST['id'];

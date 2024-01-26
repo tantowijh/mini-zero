@@ -12,6 +12,18 @@ document.addEventListener('DOMContentLoaded', function() {
       feedback.textContent = 'Sekolah, minimal 1 dan maksimal 10.';
     }
   });
+
+  var tahunMulai = document.getElementById('tahun_mulai');
+  var tahunSelesai = document.getElementById('tahun_selesai');
+  var feedback = document.querySelector('.tahun_valid');
+
+  tahunSelesai.addEventListener('change', function() {
+    if (parseInt(tahunSelesai.value) < parseInt(tahunMulai.value)) {
+      const validasi = 'Tahun selesai tidak boleh lebih kecil dari tahun mulai.';
+      tahunSelesai.setCustomValidity(validasi);
+      feedback.textContent = validasi;
+    }
+  });
 });
 
 // Menggunakan JavaScript untuk validasi form insert

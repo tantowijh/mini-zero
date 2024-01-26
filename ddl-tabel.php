@@ -6,11 +6,10 @@ $ddl_tabel = ddl_tabel($koneksi);
 
 // Mengecek apakah tabel data_pendidikan berhasil dibuat
 if ($ddl_tabel) {
-    echo 'Tabel data_pendidikan berhasil dibuat';
+    header("Location: index.php");
+    exit();
 } else {
-    echo 'Tabel data_pendidikan gagal dibuat';
+    $error_message = "Terjadi kesalahan dalam membuat tabel.";
+    header("Location: index-error.php?error_message=" . urlencode($error_message));
+    exit();
 }
-
-header("Location: index.php");
-exit();
-?>

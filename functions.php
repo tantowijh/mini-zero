@@ -1,6 +1,12 @@
 <?php
 include 'koneksi.php';
 
+function displayNoTable(){
+    $error_message = "Tabel data_pendidikan belum tersedia, silahkan buat tabel terlebih dahulu.";
+    header("Location: index-error.php?error_message=" . urlencode($error_message));
+    exit();
+}
+
 function sqlResult(mysqli_stmt $stmt){
     if ($stmt->execute()) {
         return $stmt->affected_rows;
