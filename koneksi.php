@@ -9,7 +9,7 @@ $username = $_ENV['DB_USERNAME'];
 $password = $_ENV['DB_PASSWORD'];
 $dbName = $_ENV['DB_NAME'];
 $port = $_ENV['DB_PORT'];
-$ssl = $_ENV['MYSQL_ATTR_SSL_CA'];
+$ssl = isset($_ENV['MYSQL_ATTR_SSL_CA']) ? $_ENV['MYSQL_ATTR_SSL_CA'] : '';
 
 // Mengatur SSL untuk koneksi ke database
 $koneksi = mysqli_init();
