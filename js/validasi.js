@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
   var tingkatSekolah = document.getElementById('tingkat_sekolah');
-  var feedback = document.querySelector('.invalid-feedback.nilai');
+  var feedbackNilai = document.querySelector('.invalid-feedback.nilai');
   tingkatSekolah.addEventListener('change', function() {
     var tingkat = this.value;
     var nilaiAkhir = document.getElementById('nilai_akhir');
     if (tingkat == 'S1' || tingkat == 'S2' || tingkat == 'S3') {
       nilaiAkhir.setAttribute('max', '4');
-      feedback.textContent = 'Universitas, minimal 1 dan maksimal 4.';
+      feedbackNilai.innerText = 'Universitas, minimal 1 dan maksimal 4.';
     } else {
       nilaiAkhir.setAttribute('max', '10');
-      feedback.textContent = 'Sekolah, minimal 1 dan maksimal 10.';
+      feedbackNilai.innerText = 'Sekolah, minimal 1 dan maksimal 10.';
     }
   });
 
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (parseInt(tahunSelesai.value) < parseInt(tahunMulai.value)) {
       const validasi = 'Tahun selesai tidak boleh lebih kecil dari tahun mulai.';
       tahunSelesai.setCustomValidity(validasi);
-      feedback.textContent = validasi;
+      feedback.innerText = validasi;
     }
   });
 });
